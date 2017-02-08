@@ -2,9 +2,9 @@
 Implementation of the communication between multiple child processes via a parent process using pipes
 
 
--------------------------------------------------------------------------------------------------------------------------------
-LOGIC:
--------------------------------------------------------------------------------------------------------------------------------
+
+###LOGIC
+
 
 The logic behind the program is that through the controller (parent) we:
 
@@ -20,14 +20,17 @@ process all three stdin’s and stdout’s are redirected and communication betw
 
 
 c1: prompts for input, reads stdin and writes to stdout.
+
 c2: reads stdin, converts to uppercase and writes to stdout.
+
 c3: reads stdin, adds line number and writes to stdout.
+
 controller: parent forks processes/children and communicates between them.
 
 
--------------------------------------------------------------------------------------------------------------------------------
-PSEUDO CODE:
--------------------------------------------------------------------------------------------------------------------------------
+
+##PSEUDO CODE:
+
 
 create pipe1
 create pipe2
@@ -80,9 +83,8 @@ print stdout
 }
 
 
--------------------------------------------------------------------------------------------------------------------------------
-TEST PLAN:
--------------------------------------------------------------------------------------------------------------------------------
+
+##TEST PLAN:
 
 [mwahab@han ~]$ cc -o c1 c1.c
 [mwahab@han ~]$ ./c1
@@ -133,9 +135,8 @@ Q
  3 THANK YOU!
 
 
--------------------------------------------------------------------------------------------------------------------------------
-LIMITATIONS: 
--------------------------------------------------------------------------------------------------------------------------------
+###LIMITATIONS: 
+
 
 All though the output is correct and the redirections and pipes are all connected correctly the program has the following limitations:
 
