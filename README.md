@@ -8,24 +8,21 @@ Implementation of the communication between multiple child processes via a paren
 
 The logic behind the program is that through the controller (parent) we:
 
-(1) Create a pipe, then fork 3 child processes (c1, c2 & c3) one at a time, 
+**(1)** Create a pipe, then fork 3 child processes (c1, c2 & c3) one at a time, 
 from child 1 (c1) we redirect it’s pipe to stdin, then also read its stdin and write it to stdout.
 
-(2) Fork child 2 (c2) to start the second process and redirect that pipe to stdin in as well as the second pipe to stdout. 
+**(2)** Fork child 2 (c2) to start the second process and redirect that pipe to stdin in as well as the second pipe to stdout. 
 
-(3) Fork the third child (c3) and redirect that pipe to stdin. 
+**(3)** Fork the third child (c3) and redirect that pipe to stdin. 
 
 Doing this connects all processes/children so that when we execute c1, c2 & c3 via the controller (parent) 
 process all three stdin’s and stdout’s are redirected and communication between child processes is successful. 
 
 
-c1: prompts for input, reads stdin and writes to stdout.
-
-c2: reads stdin, converts to uppercase and writes to stdout.
-
-c3: reads stdin, adds line number and writes to stdout.
-
-controller: parent forks processes/children and communicates between them.
+c1: prompts for input, reads stdin and writes to stdout. <br />
+c2: reads stdin, converts to uppercase and writes to stdout. <br />
+c3: reads stdin, adds line number and writes to stdout.<br />
+controller: parent forks processes/children and communicates between them.<br />
 
 
 
@@ -83,65 +80,65 @@ print stdout
 }
 
 
+ <br />
+##TEST PLAN: <br />
+ <br />
+[mwahab@han ~]$ cc -o c1 c1.c <br />
+[mwahab@han ~]$ ./c1 <br />
 
-##TEST PLAN:
+Please enter the next line of input, enter 'q' or 'Q' to exit <br />
+The Quick brown fox   <br />   
+The Quick brown fox  <br />
+ <br />
+Please enter the next line of input, enter 'q' or 'Q' to exit <br />
+jumps over the lazy dog. <br />
+jumps over the lazy dog. <br />
+ <br />
+Please enter the next line of input, enter 'q' or 'Q' to exit <br />
+Q <br />
+Thank you! <br />
 
-[mwahab@han ~]$ cc -o c1 c1.c
-[mwahab@han ~]$ ./c1
+[mwahab@han ~]$ cc -o c2 c2.c <br />
+[mwahab@han ~]$ ./c2 <br />
+The Quick brown fox <br />
+THE QUICK BROWN FOX <br />
+jumps over the lazy dog <br />
+JUMPS OVER THE LAZY DOG <br />
+Q <br />
+THANK YOU! <br />
 
-Please enter the next line of input, enter 'q' or 'Q' to exit
-The Quick brown fox     
-The Quick brown fox 
+[mwahab@han ~]$ cc -o c3 c3.c <br />
+[mwahab@han ~]$ ./c3 <br />
+The Quick brown fox <br />
+ 1 The Quick brown fox <br />
+jumps over the lazy dog. <br />
+ 2 jumps over the lazy dog. <br />
+Q <br />
+Thank you! <br />
 
-Please enter the next line of input, enter 'q' or 'Q' to exit
-jumps over the lazy dog.
-jumps over the lazy dog.
+[mwahab@han ~]$ cc -o controller controller.c<br />
+[mwahab@han ~]$ ./controller <br />
 
-Please enter the next line of input, enter 'q' or 'Q' to exit
-Q
-Thank you!
+Please enter the next line of input, enter 'q' or 'Q' to exit <br />
+The Quick brown fox <br />
+ 1 THE QUICK BROWN FOX <br />
+ <br />
+Please enter the next line of input, enter 'q' or 'Q' to exit <br />
+jumps over the lazy dog. <br />
+ 2 JUMPS OVER THE LAZY DOG. <br />
+ <br />
+Please enter the next line of input, enter 'q' or 'Q' to exit <br />
+Q <br />
+ 3 THANK YOU! <br />
+ <br />
 
-[mwahab@han ~]$ cc -o c2 c2.c
-[mwahab@han ~]$ ./c2
-The Quick brown fox
-THE QUICK BROWN FOX
-jumps over the lazy dog
-JUMPS OVER THE LAZY DOG
-Q
-THANK YOU!
-
-[mwahab@han ~]$ cc -o c3 c3.c
-[mwahab@han ~]$ ./c3
-The Quick brown fox
- 1 The Quick brown fox
-jumps over the lazy dog.
- 2 jumps over the lazy dog.
-Q
-Thank you!
-
-[mwahab@han ~]$ cc -o controller controller.c
-[mwahab@han ~]$ ./controller
-
-Please enter the next line of input, enter 'q' or 'Q' to exit
-The Quick brown fox
- 1 THE QUICK BROWN FOX
-
-Please enter the next line of input, enter 'q' or 'Q' to exit
-jumps over the lazy dog.
- 2 JUMPS OVER THE LAZY DOG.
-
-Please enter the next line of input, enter 'q' or 'Q' to exit
-Q
- 3 THANK YOU!
-
-
-##LIMITATIONS: 
-
-
-All though the output is correct and the redirections and pipes are all connected correctly the program has the following limitations:
-
-- Does not 100% wait for all child processes to end and show each of their exit statuses. 
-- Parent waits for all child processes at the end, the parent should wait for each child at a time after exec then print out all child processes status at the end.
+##LIMITATIONS:  <br />
 
 
-NOTE: c1.c, c2.c & c3.c have commented out code that only loops once to test that the communication pipes and redirection is all correct, the output for that is also correct if you wanted to test that.
+All though the output is correct and the redirections and pipes are all connected correctly the program has the following limitations: <br />
+
+- Does not 100% wait for all child processes to end and show each of their exit statuses.  <br />
+- Parent waits for all child processes at the end, the parent should wait for each child at a time after exec then print out all child processes status at the end. <br />
+
+
+NOTE: c1.c, c2.c & c3.c have commented out code that only loops once to test that the communication pipes and redirection is all correct, the output for that is also correct if you wanted to test that. <br />
