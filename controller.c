@@ -87,7 +87,7 @@ int main(int ac, char**av)
                 //Prints to std error if pipe could not be redirected
                 fprintf(stderr, "\nCould not redirect pipeC1ToC2[0] to stdin\n");
             }
-
+ 
             if  ( close(pipeC1ToC2[0]) == -1) //writing closed, child 1 writes to pipe    
             { 
                 //Prints to std error if pipe could not be closed
