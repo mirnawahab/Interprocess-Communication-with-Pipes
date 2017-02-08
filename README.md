@@ -3,7 +3,7 @@ Implementation of the communication between multiple child processes via a paren
 
 
 
-###LOGIC
+##LOGIC
 
 
 The logic behind the program is that through the controller (parent) we:
@@ -135,7 +135,7 @@ Q
  3 THANK YOU!
 
 
-###LIMITATIONS: 
+##LIMITATIONS: 
 
 
 All though the output is correct and the redirections and pipes are all connected correctly the program has the following limitations:
