@@ -46,8 +46,9 @@ get stdin as char[] <br />
 
 }
 
-fork()
+fork()<br />
 {
+
 redirect pipe2 input <br />
 close pipe 1 <br />
 
@@ -61,9 +62,11 @@ get stdin as char[] <br />
 convert to uppercase <br />
 print stdout <br />
 }
+
 }
 
 fork()
+
 
 redirect pipe2 input <br /> 
 close pipe 2 <br />
