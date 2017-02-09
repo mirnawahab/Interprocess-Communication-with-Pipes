@@ -19,62 +19,63 @@ Doing this connects all processes/children so that when we execute c1, c2 & c3 v
 process all three stdin’s and stdout’s are redirected and communication between child processes is successful. 
 
 
-c1: prompts for input, reads stdin and writes to stdout. <br />
-c2: reads stdin, converts to uppercase and writes to stdout. <br />
-c3: reads stdin, adds line number and writes to stdout.<br />
-controller: parent forks processes/children and communicates between them.<br />
+**c1:** prompts for input, reads stdin and writes to stdout. <br />
+**c2:** reads stdin, converts to uppercase and writes to stdout. <br />
+**c3:** reads stdin, adds line number and writes to stdout.<br />
+**controller:** parent forks processes/children and communicates between them.<br />
 
 
 
 ##PSEUDO CODE:
 
 
-create pipe1
-create pipe2
+create pipe1 <br />
+create pipe2 <br />
 
 fork()
 {
 
-redirect pipe1 output
-close pipe 1 
-exec c1
+redirect pipe1 output <br />
+close pipe 1  <br />
+exec c1 <br />
 
 c1
 {
-get stdin as char[]
+get stdin as char[] <br />
 }
 
 }
 
 fork()
 {
-redirect pipe2 input
-close pipe 1
+redirect pipe2 input <br />
+close pipe 1 <br />
 
-redirect pipe2 output
-close pipe2
+redirect pipe2 output <br />
+close pipe2 <br />
 
 exec c2
 {
 
-get stdin as char[]
-convert to uppercase
-print stdout
+get stdin as char[] <br />
+convert to uppercase <br />
+print stdout <br />
 }
 }
 
 fork()
 
-redirect pipe2 input
-close pipe 2
+redirect pipe2 input <br /> 
+close pipe 2 <br />
 
 
 exec c3
 {
 
-get stdin as char[]
-add number
-print stdout
+get stdin as char[] <br />
+add number <br />
+print stdout <br />
+
 }
 
 }
