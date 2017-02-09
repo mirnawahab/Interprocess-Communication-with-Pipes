@@ -41,6 +41,7 @@ exec c1 <br />
 
 c1
 {
+
 get stdin as char[] <br />
 }
 
