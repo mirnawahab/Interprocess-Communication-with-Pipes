@@ -12,7 +12,7 @@
 
 #define BUFSIZE 256
 
- 
+  
 // This program reads its stdin, converts the lower case of
 // the input to upper case, and writes this to stdout.
 
