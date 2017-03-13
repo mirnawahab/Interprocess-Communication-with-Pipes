@@ -5,7 +5,7 @@ Implementation of the communication between multiple child processes via a paren
  
 ##LOGIC
 
-
+  
 The logic behind the program is that through the controller (parent) we:
 
 **(1)** Create a pipe, then fork 3 child processes (c1, c2 & c3) one at a time, 
@@ -24,7 +24,7 @@ process all three stdin’s and stdout’s are redirected and communication betw
 **c3:** reads stdin, adds line number and writes to stdout.<br />
 **controller:** parent forks processes/children and communicates between them.<br />
 
-
+    
 
 ##PSEUDO CODE:
 
@@ -36,7 +36,7 @@ fork()
 {
 
 redirect pipe1 output <br />
-close pipe 1  <br />
+close pipe 1  <br />s
 exec c1 <br />
 
 c1
