@@ -36,7 +36,7 @@ fork()
 {
 
 redirect pipe1 output <br />
-close pipe 1  <br />s
+close pipe 1  <br />
 exec c1 <br />
 
 c1
