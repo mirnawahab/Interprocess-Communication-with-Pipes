@@ -95,7 +95,7 @@ int main(int ac, char**av)
             } 
             /* end of connecting first communication pipe (pipeC1ToC2) */
 
-
+ 
                 // Now we start connecting second communication pipe (pipeC2ToC3)
                 if  ( close(pipeC2ToC3[0]) == -1) //reading closed, child 1 writes to pipe    
                 { 
