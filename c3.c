@@ -48,12 +48,10 @@ int main(int ac,char**av)
    COMMENT ABOVE AND UN-COMMENT BELOW TO SEE REDIRECTION CORRECT AND WORKING
    ONLY LOOPS ONCE AS PURPOSE IS JUST FOR TESTING  */
 		
-		/*
-
-		fgets(line, 100, stdin);
+	/*
+	fgets(line, 100, stdin);
      	fprintf(stdout, " %d %s\n", i, line);
         i++;
-        
         */
 
 }
