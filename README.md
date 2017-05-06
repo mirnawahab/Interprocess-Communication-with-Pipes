@@ -3,7 +3,7 @@ Implementation of the communication between multiple child processes via a paren
 
   
  
-##LOGIC
+### LOGIC
 
   
 The logic behind the program is that through the controller (parent) we:
@@ -25,8 +25,7 @@ process all three stdin’s and stdout’s are redirected and communication betw
 **controller:** parent forks processes/children and communicates between them.<br />
 
     
-
-##PSEUDO CODE:
+### PSEUDO CODE
 
 
 create pipe1 <br />
@@ -85,9 +84,8 @@ print stdout <br />
 }
 
 
- <br />
-##TEST PLAN: <br />
- <br />
+### TEST PLAN
+
 [mwahab@han ~]$ cc -o c1 c1.c <br />
 [mwahab@han ~]$ ./c1 <br />
 
@@ -137,7 +135,7 @@ Q <br />
  3 THANK YOU! <br />
  <br />
 
-##LIMITATIONS:  <br />
+### LIMITATIONS
 
 
 All though the output is correct and the redirections and pipes are all connected correctly the program has the following limitations: <br />
